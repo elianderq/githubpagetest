@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider input {
+    visibility: hidden;
+    display: none;
+}
+
+.buttons {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 20px;
+    gap: 10px;
+}
+
+.buttons label {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    transition: 300ms ease-in-out;
+}
+
+.buttons label:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+.slider input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.slider input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.slider input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+    opacity: 1;
+    width: 30px;
+    border-radius: 20px;
+}
+
+.content {
+    position: relative;
+    width: 300vw;
+    display: flex;
+    transition: 400ms ease-in-out;
+}
+
+.slide {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.firstslide {
+    background: linear-gradient(to right, #009688, #004d40);
+}
+
+.secondslide {
+    background: linear-gradient(to right, #b71c1c, #880e4f);
+}
+
+.thirdslide {
+    background: linear-gradient(to right, #1b5e20, #004d40);
+}
+
+.text {
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.slider input:nth-child(1):checked ~ .content {
+    left: 0;
+}
+
+.slider input:nth-child(2):checked ~ .content {
+    left: -100vw;
+}
+
+.slider input:nth-child(3):checked ~ .content {
+    left: -200vw;
+}
